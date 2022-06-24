@@ -1,0 +1,60 @@
+{
+    "port": 9097,
+    "epg": {
+        "iptv-org-rs-mts": {
+            "url": "https://iptv-org.github.io/epg/guides/rs/mts.rs.epg.xml",
+            "channels": [
+                "101TV.rs",
+                "24KitchenSrbija.rs",
+                "AlternativnaTV.ba",
+                "B92.rs",
+                "BalkanTrip.rs",
+                "CBSRealityEurope.us",
+                "Cinemax2CentralEurope.us",
+                "CrimePlusInvestigationUK.uk",
+                "DaVinci.de",
+                "DecijaTV.rs",
+                "DexyTV.rs",
+                "Dizi.us",
+                "DocuBoxHD.us",
+                "DoxTV.hr",
+                "DunavTV.rs",
+                "EEurope.us",
+                "EpicDrama.se",
+                "RTVBosphorus.rs",
+                "eduTV.rs",
+                "PrvaTVCrnaGora.me",
+                "PrvaSrpskaTV.rs",
+                "RTS1.rs",
+                "RTS2.rs",
+                "RTS3.rs",
+                "RTSDrama.rs",
+                "RTSKlasika.rs",
+                "RTSMuzika.rs",
+                "RTV1.rs",
+                "RTV2.rs",
+                "RTSPoletarac.rs",
+                "RTSTrezor.rs",
+                "RTSZivot.rs",
+                "RTVBap.rs",
+                "RTVMelos.rs",
+                "RTVSP.rs",
+                "StudioB.rs"
+            ]
+        },
+        "iptv-org-me-arena": {
+            "url": "https://iptv-org.github.io/epg/guides/me/tvarenasport.com.epg.xml",
+            "channels": [
+                "ArenaSport5.rs"
+            ]
+        },
+        "iptv-org-ba-mtel": {
+            "url": "https://iptv-org.github.io/epg/guides/ba/mtel.ba.epg.xml",
+            "channels": [
+                "101TV.rs",
+                "AMCBalkan.us",
+                "AgroTV.rs"
+            ]
+        }
+    }
+}
