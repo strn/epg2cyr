@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import argparse, os.path, sys
+import argparse, os.path, re, sys
 
 from epgconfig import Config
 from multireplace import StringReplacer
@@ -27,11 +27,18 @@ def check_args(args):
 def main(args):
     conf = Config(args.config_file)
     srepl = StringReplacer(conf.get())
+    regex = re.compile(r"(\stvg-id=\".*\"\s)?")
 
     with open(args.output_file, "wb") as outf:
         with open(args.input_file) as inf:
             for index, line in enumerate(inf):
-                outf.write(f"{srepl.process(line.strip())}\n".encode('utf-8'))
+                stripped = line.strip()
+                linelist = stripped.split('=')
+                # Make 'tvg-id' lowercase
+                if len(linelist) > 1:
+                    linelist[1] = linelist[1].lower()
+                joined = "=".join(linelist)
+                outf.write(f"{srepl.process(joined)}\n".encode('utf-8'))
             inf.close()
         outf.close()
 

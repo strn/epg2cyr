@@ -3,7 +3,7 @@
     "epg": {
         "iptv-org-rs-mts": {
             "url": "https://iptv-org.github.io/epg/guides/rs/mts.rs.epg.xml",
-            "channels": [
+            "channel-translit": [
                 "101TV.rs",
                 "24KitchenSrbija.rs",
                 "AlternativnaTV.ba",
@@ -15,9 +15,6 @@
                 "DaVinci.de",
                 "DecijaTV.rs",
                 "DexyTV.rs",
-                "Dizi.us",
-                "DocuBoxHD.us",
-                "DoxTV.hr",
                 "DunavTV.rs",
                 "EEurope.us",
                 "EpicDrama.se",
@@ -39,22 +36,50 @@
                 "RTVBap.rs",
                 "RTVMelos.rs",
                 "RTVSP.rs",
-                "StudioB.rs"
-            ]
+                "StudioB.rs",
+                "TVBelleAmie.rs",
+                "KCN1.rs",
+                "tvistok.rs"
+            ],
+            "dummy": [],
+            "channel-map": {}
         },
         "iptv-org-me-arena": {
             "url": "https://iptv-org.github.io/epg/guides/me/tvarenasport.com.epg.xml",
-            "channels": [
+            "channel-translit": [
                 "ArenaSport5.rs"
-            ]
+            ],
+            "dummy": [],
+            "channel-map": {}
         },
         "iptv-org-ba-mtel": {
             "url": "https://iptv-org.github.io/epg/guides/ba/mtel.ba.epg.xml",
-            "channels": [
+            "channel-translit": [
                 "101TV.rs",
                 "AMCBalkan.us",
                 "AgroTV.rs"
-            ]
+            ],
+            "dummy": [],
+            "channel-map": {}
+        },
+        "serbianforum-epg": {
+            "url": "http://epg.serbianforum.org/losmij/epg.xml.gz",
+            "channel-translit": [
+            ],
+            "dummy": [
+                "RTS 1 HD",
+                "RTS 2 HD",
+                "RTS 3 HD",
+                "RTV1",
+                "RTV2"
+            ],
+            "channel-map": {
+                "RTV Pančevo": "tvpancevo.rs",
+                "Hayat Plus": "hayatplus.ba",
+                "DIVA": "diva.hr",
+                "NOVA TV": "novatv.hr",
+                "TV Jefimija": "tvjefimija.rs"
+            }
         }
     }
 }

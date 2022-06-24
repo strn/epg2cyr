@@ -134,6 +134,7 @@ class SrbCirilizator():
         "natho",
         "ommetar",
         "penthaus",
+        "palack",
         "poddirektor",
         "poddisciplin",
         "poddomen",
@@ -158,7 +159,7 @@ class SrbCirilizator():
         "transsibir",
         "tridesettrog",
         "uppr",
-        "vannastav",
+        "vannastav"
     ]
 
     common_foreign_words = [
@@ -249,7 +250,7 @@ class SrbCirilizator():
         "ufc",
         "unicredit",
         "username",
-        "viber",
+        "viber"
     ]
 
     whole_foreign_words = [
@@ -292,7 +293,7 @@ class SrbCirilizator():
         "url",
         "vii",
         "viii",
-        "visa",
+        "visa"
     ]
 
     foreign_character_combinations = [
@@ -313,6 +314,11 @@ class SrbCirilizator():
         'ő',
         'ű',
         'ñ',
+        'ş',
+        'ç',
+        'ğ',
+        'ı',
+        'ł',
         'ø',
         'ß',
         '&',
@@ -320,6 +326,7 @@ class SrbCirilizator():
         '#',
         'bb',
         'cc',
+        'ck',
         'cs',
         'dd',
         'ee',
@@ -355,7 +362,7 @@ class SrbCirilizator():
         '.org',
         '©',
         '®',
-        '™',
+        '™'
     ]
 
     digraph_exceptions = {

@@ -1,9 +1,9 @@
 {
     "group-title=\"Greece\"": "group-title=\"Грчка [Greece]\"",
     "group-title=\"United Kingdom\"": "group-title=\"Уједињено Краљевство [United Kingdom]\"",
-    "group-title=\"USA Live Sports Events\"": "group-title=\"САД спортска дешавања [USA Live Sports Events]\"",
+    "group-title=\"USA Live Sports Events\"": "group-title=\"С.А.Д. спортска дешавања [USA Live Sports Events]\"",
     "group-title=\"Italy\"": "group-title=\"Италија [Italy]\"",
-    "group-title=\"USA Locals\"": "group-title=\"САД локални програми [USA Locals]\"",
+    "group-title=\"USA Locals\"": "group-title=\"С.А.Д. локални програми [USA Locals]\"",
     "Nacionalni & lokalni": "Национални и локални",
     "group-title=\"Crna Gora MNE\"": "group-title=\"Црна Гора [Crna Gora MNE]\"",
     "group-title=\"Srbija RS\"": "group-title=\"Србија [Srbija RS]\"",
@@ -73,5 +73,9 @@
     "group-title=\"VOD Greece\"": "group-title=\"Грчка VOD [VOD Greece]\"",
     "group-title=\"VOD English Series\"": "group-title=\"Енглеске игране серије [VOD English Series]\"",
     "group-title=\"VOD Turkish Series\"": "group-title=\"Турске серије [VOD Turkish Series]\"",
-    "group-title=\"VOD English Animation Series\"": "group-title=\"Енглеске анимиране серије [VOD English Animation Series]\"" 
+    "group-title=\"VOD English Animation Series\"": "group-title=\"Енглеске анимиране серије [VOD English Animation Series]\"",
+    "tvg-id=\"\" tvg-name=\"Kurir TV HD RS\"": "tvg-id=\"kurirtv.rs\" tvg-name=\"Kurir TV HD RS\"",
+    "tvg-id=\"\" tvg-name=\"Jefimija TV RS\"": "tvg-id=\"tvjefimija.rs\" tvg-name=\"Jefimija TV RS\"",
+    "tvg-id=\"\" tvg-name=\"TV Istok RS\"": "tvg-id=\"tvistok.rs\" tvg-name=\"TV Istok RS\"",
+    "tvg-id=\"\" tvg-name=\"TV Banovina HR\"": "tvg-id=\"RTV Banovina\" tvg-name=\"TV Banovina HR\""
 }

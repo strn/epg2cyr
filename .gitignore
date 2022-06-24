@@ -1,2 +1,4 @@
 settings.sh
 *.txt
+__pycache__
+*.xml
