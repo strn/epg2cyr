@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from   datetime import timedelta
+from   datetime import date, datetime, timedelta
+import gzip
 import html
 from   http.server import SimpleHTTPRequestHandler
 import io
 import logging
-import urllib.request, urllib.error
+import re
 import socketserver
 import sys
 import time
+import unicodedata
+import urllib.request, urllib.error
 import xml.parsers.expat
-import gzip
 
 
 logging.basicConfig(
@@ -41,20 +43,38 @@ class EpgParser():
         self.parser.XmlDeclHandler = self.xml_dec
         self.translit = False
         self.channel = ''
+        self.invalid_tag = False
+
+    # Removes "foreign" (non-alphanumeric) characters
+    def remove_foreign(self, word):
+        tt = unicodedata.normalize('NFKD', word).encode('ascii', 'ignore').decode('utf-8')
+        return re.sub(r"[\s\(\)\/\&\!:\*\_\+,'\-]", '', tt)
 
     # 3 handler functions
     def start_element(self, name, attrs):
         attrstr = ""
         if name in ('title', 'desc'):
             self.translit = True
+        elif name in self.config['invalid-tags']:
+            self.invalid_tag = True
+            return
+        elif name == 'tv':
+            if 'date' in attrs.keys():
+                tvdate = attrs['date']
+            else:
+                tvdate = datetime.now().strftime("%Y%m%d")
+            attrs = dict()
+            attrs['date'] = tvdate
         elif name == 'programme':
             if 'channel' in attrs.keys():
-                self.channel = attrs['channel'].lower()
+                self.channel = self.remove_foreign(attrs['channel'].strip().lower())
             else:
                 self.channel = ''
         elif name == 'channel':
             if 'id' in attrs.keys():
-                attrs['id'] = attrs['id'].lower()
+                attrs['id'] = self.remove_foreign(attrs['id'].strip().lower())
+                if attrs['id'] in self.config['channel-map'].keys():
+                    attrs['id'] = self.config['channel-map'][attrs['id']]
         for key, value in attrs.items():
             if key == 'channel':
                 # Result of this will be in self.channel
@@ -65,13 +85,18 @@ class EpgParser():
         self.outfile.write(f"<{name}{attrstr}>".encode('utf-8'))
 
     def end_element(self, name):
+        if name in self.config['invalid-tags']:
+            self.invalid_tag = False
+            return
         self.outfile.write(f"</{name}>".encode('utf-8'))
         if name in ('channel', 'programme', 'tv'):
-            self.outfile.write(b"")
+            self.outfile.write(b"\n")
         self.translit = False
 
     def char_data(self, data):
-        escaped = html.escape(data)
+        if self.invalid_tag:
+            return
+        escaped = html.escape(data.strip())
         if self.translit and self.channel in self.config['channel-translit']:
             self.outfile.write(self.cir.text_to_cyrillic(escaped).encode('utf-8'))
         else:
@@ -100,6 +125,8 @@ class EpgParser():
         # Make all channel names in 'channel-translit' lowercase
         if 'channel-translit' in self.config.keys():
             self.config['channel-translit'] = [x.lower() for x in self.config['channel-translit']]
+        if 'channel-map' in self.config.keys():
+            self.config['channel-map'] = dict((k.lower(), v) for k,v in self.config['channel-map'].items())
         logging.info(f"Configuration={self.config}")
         self.parser.ParseFile(infile)
 
@@ -129,7 +156,7 @@ class HttProxy(SimpleHTTPRequestHandler):
                 pass
             end_time = time.time()
             time_elapsed = end_time - start_time
-            logging.info(f"Processing URL={epgurl} took {str(timedelta(seconds=time_elapsed))}")
+            logging.info(f"Processed URL={epgurl} in time: {str(timedelta(seconds=time_elapsed))}")
         except (urllib.error.HTTPError, urllib.error.URLError) as err:
             logging.error(f"URL={url}, error: {err}")
 

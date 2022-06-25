@@ -3,49 +3,66 @@
     "epg": {
         "iptv-org-rs-mts": {
             "url": "https://iptv-org.github.io/epg/guides/rs/mts.rs.epg.xml",
+            "invalid-tags": [],
             "channel-translit": [
-                "101TV.rs",
-                "24KitchenSrbija.rs",
-                "AlternativnaTV.ba",
-                "B92.rs",
-                "BalkanTrip.rs",
-                "CBSRealityEurope.us",
-                "Cinemax2CentralEurope.us",
-                "CrimePlusInvestigationUK.uk",
-                "DaVinci.de",
-                "DecijaTV.rs",
-                "DexyTV.rs",
-                "DunavTV.rs",
-                "EEurope.us",
-                "EpicDrama.se",
-                "RTVBosphorus.rs",
-                "eduTV.rs",
-                "PrvaTVCrnaGora.me",
-                "PrvaSrpskaTV.rs",
-                "RTS1.rs",
-                "RTS2.rs",
-                "RTS3.rs",
-                "RTSDrama.rs",
-                "RTSKlasika.rs",
-                "RTSMuzika.rs",
-                "RTV1.rs",
-                "RTV2.rs",
-                "RTSPoletarac.rs",
-                "RTSTrezor.rs",
-                "RTSZivot.rs",
-                "RTVBap.rs",
-                "RTVMelos.rs",
-                "RTVSP.rs",
-                "StudioB.rs",
-                "TVBelleAmie.rs",
-                "KCN1.rs",
-                "tvistok.rs"
+                "101tv.rs",
+                "24kitchensrbija.rs",
+                "alternativnatv.ba",
+                "b92.rs",
+                "balkantrip.rs",
+                "cbsrealityeurope.us",
+                "cinemax2centraleurope.us",
+                "crimeplusinvestigationuk.uk",
+                "davinci.de",
+                "decijatv.rs",
+                "dexytv.rs",
+                "dunavtv.rs",
+                "epicdrama.se",
+                "rtvbosphorus.rs",
+                "edutv.rs",
+                "prvatvcrnagora.me",
+                "prva.rs",
+                "rts1.rs",
+                "rts2.rs",
+                "rts3.rs",
+                "rtsdrama.rs",
+                "rtsklasika.rs",
+                "rtsmuzika.rs",
+                "rtv1.rs",
+                "rtv2.rs",
+                "rtspoletarac.rs",
+                "rtstrezor.rs",
+                "rtszivot.rs",
+                "rtvbap.rs",
+                "rtvmelos.rs",
+                "rtvsp.rs",
+                "studiob.rs",
+                "tvbelleamie.rs",
+                "kcn1.rs",
+                "tvistok.rs",
+                "tvbor.rs",
+                "tvpartizan.rs",
+                "tvleskovac.rs",
+                "zadruga1.rs",
+                "zadruga2.rs",
+                "zadruga3.rs",
+                "zadruga4.rs",
+                "kurirtv.rs",
+                "tvpalmaplus.rs",
+                "tvsandzak.rs",
+                "prva.rs",
+                "pinkfolk1.rs",
+                "pinkfolk2.rs"
             ],
             "dummy": [],
-            "channel-map": {}
+            "channel-map": {
+                "sandzaktv.rs": "tvsandzak.rs",
+                "prvasrpskatv.rs": "prva.rs"
+            }
         },
         "iptv-org-me-arena": {
             "url": "https://iptv-org.github.io/epg/guides/me/tvarenasport.com.epg.xml",
+            "invalid-tags": [],
             "channel-translit": [
                 "ArenaSport5.rs"
             ],
@@ -54,32 +71,58 @@
         },
         "iptv-org-ba-mtel": {
             "url": "https://iptv-org.github.io/epg/guides/ba/mtel.ba.epg.xml",
+            "invalid-tags": [],
             "channel-translit": [
-                "101TV.rs",
-                "AMCBalkan.us",
-                "AgroTV.rs"
+                "101tv.rs",
+                "amcbalkan.us",
+                "agrotv.rs"
             ],
             "dummy": [],
             "channel-map": {}
         },
         "serbianforum-epg": {
             "url": "http://epg.serbianforum.org/losmij/epg.xml.gz",
+            "invalid-tags": [
+                "EPG-Provider"
+            ],
             "channel-translit": [
+                "tvjefimija.rs",
+                "sos.rs",
+                "pinkandroll.rs",
+                "pink1.rs",
+                "pink2.rs",
+                "n1.rs",
+                "novas.sr",
+                "zvezdatv.rs"
             ],
             "dummy": [
                 "RTS 1 HD",
                 "RTS 2 HD",
                 "RTS 3 HD",
                 "RTV1",
-                "RTV2"
+                "RTV2",
+                "tv leskovac"
             ],
             "channel-map": {
                 "RTV Pančevo": "tvpancevo.rs",
                 "Hayat Plus": "hayatplus.ba",
                 "DIVA": "diva.hr",
                 "NOVA TV": "novatv.hr",
-                "TV Jefimija": "tvjefimija.rs"
+                "tvjefimija": "tvjefimija.rs",
+                "n1hdsr": "n1.rs",
+                "soskanalplus": "sos.rs",
+                "pinkroll": "pinkandroll.rs",
+                "redtvpink2hd": "pink2.rs",
+                "pinkhd": "pink1.rs",
+                "novashd": "novas.sr",
+                "zvezdatvhd": "zvezdatv.rs"
             }
+        },
+        "iptv-org-hr": {
+            "url": "https://iptv-org.github.io/epg/guides/hr/maxtv.hrvatskitelekom.hr.epg.xml",
+            "channel-translit": [],
+            "dummy": [],
+            "channel-map": {}
         }
     }
 }

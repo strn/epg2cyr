@@ -23,6 +23,8 @@ def check_args(args):
         print(f"ERROR: Configuration file '{args.config_file}' does not exist", file=sys.stderr)
         exit(1)
 
+def replace_foreign(str):
+    return str.replace('č','c').replace('ž','z').replace('š','s')
 
 def main(args):
     conf = Config(args.config_file)
@@ -34,9 +36,9 @@ def main(args):
             for index, line in enumerate(inf):
                 stripped = line.strip()
                 linelist = stripped.split('=')
-                # Make 'tvg-id' lowercase
+                # Make 'tvg-id' lowercase and remove foreign chars
                 if len(linelist) > 1:
-                    linelist[1] = linelist[1].lower()
+                    linelist[1] = replace_foreign(linelist[1].lower())
                 joined = "=".join(linelist)
                 outf.write(f"{srepl.process(joined)}\n".encode('utf-8'))
             inf.close()
