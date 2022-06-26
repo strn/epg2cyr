@@ -145,6 +145,7 @@ class SrbCirilizator():
         "pothodni",
         "pothranj",
         "preddijabetes",
+        "prekookean",
         "prethod",
         "ptt",
         "sbb",
@@ -156,11 +157,13 @@ class SrbCirilizator():
         "superračun",
         "šopingholi",
         "tass",
+        "trocki",
         "transseks",
         "transsibir",
         "tridesettrog",
         "uppr",
-        "vannastav"
+        "vannastav",
+        "zoo"
     ]
 
     common_foreign_words = [
@@ -255,6 +258,7 @@ class SrbCirilizator():
     ]
 
     whole_foreign_words = [
+        "again",
         "air",
         "alpha",
         "and",
@@ -342,6 +346,7 @@ class SrbCirilizator():
         'mm',
         'nn',
         'ny',
+        'oo',
         'ph',
         'pp',
         'rr',
@@ -349,6 +354,7 @@ class SrbCirilizator():
         'ss',
         'sz',
         'tt',
+        'uu',
         'zs',
         'zz',
         'ch',
@@ -818,3 +824,5 @@ if __name__ == "__main__":
 
     # Test it_wont_transliterate_to_cyrillic_words_with_foreign_character_combination
     assert cir.text_to_cyrillic('Naša pevačica, Jellena sa dva l, učestvovala u prethodnoj VII sezoni Big Brother muzzičkog festivalа na sajtu domen.com') == 'Наша певачица, Jellena са два л, учествовала у претходној VII сезони Биг Brother muzzičkog фестивала на сајту domen.com'
+
+    assert cir.text_to_cyrillic('prslook prekookeanski') == 'prslook прекоокеански'

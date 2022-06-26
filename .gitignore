@@ -2,3 +2,4 @@ settings.sh
 *.txt
 __pycache__
 *.xml
+*.m3u

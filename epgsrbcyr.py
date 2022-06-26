@@ -6,6 +6,7 @@ import gzip
 import html
 from   http.server import SimpleHTTPRequestHandler
 import io
+import json
 import logging
 import re
 import socketserver
@@ -135,14 +136,23 @@ class HttProxy(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         url = self.path[1:]
-        if not url in conf.config['epg'].keys():
+        if url == '':
+            # Return configuration
+            self.send_response(200)
+            self.send_header("Content-type", "text/html; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(
+                f"""<body><h1>ЕПГ Ћирилизатор</h1><br/>Верзија: 1.0<br/>Конфигурација:
+                <pre>{json.dumps(conf.config, indent=4)}</pre></body>""".encode('utf-8'))
+            return
+        elif url not in conf.config['epg'].keys():
             self.send_response(404)
             self.end_headers()
             self.wfile.write(f"URL key '{url}' not found in configuration file\n".encode('utf-8'))
             return
-        self.send_response(200)
-        self.end_headers()
         try:
+            self.send_response(200)
+            self.end_headers()
             cfg = conf.config['epg'][url]
             epgurl = cfg['url']
             logging.info(f"Key={url}, URL={epgurl}")
