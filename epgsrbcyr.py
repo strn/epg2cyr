@@ -45,6 +45,7 @@ class EpgParser():
         self.translit = False
         self.channel = ''
         self.invalid_tag = False
+        self.channels = set()
 
     # Removes "foreign" (non-alphanumeric) characters
     def remove_foreign(self, word):
@@ -74,6 +75,7 @@ class EpgParser():
         elif name == 'channel':
             if 'id' in attrs.keys():
                 attrs['id'] = self.remove_foreign(attrs['id'].strip().lower())
+                self.channels.add(attrs['id'])
                 if attrs['id'] in self.config['channel-map'].keys():
                     attrs['id'] = self.config['channel-map'][attrs['id']]
         for key, value in attrs.items():
@@ -90,8 +92,10 @@ class EpgParser():
             self.invalid_tag = False
             return
         self.outfile.write(f"</{name}>".encode('utf-8'))
-        if name in ('channel', 'programme', 'tv'):
+        if name in ('channel', 'programme', 'tv',):
             self.outfile.write(b"\n")
+            if name == 'tv':
+                logging.info(f"Found {len(self.channels)} channels: {sorted(self.channels)}")
         self.translit = False
 
     def char_data(self, data):
