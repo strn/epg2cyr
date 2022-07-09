@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from   datetime import date, datetime, timedelta
+from   datetime import datetime, timedelta
 import gzip
 import html
 from   http.server import SimpleHTTPRequestHandler
@@ -28,7 +28,7 @@ logging.basicConfig(
 )
 
 # Program-specific modules
-from py2srbcyr import SerbCyr
+from py2srbcyr import py2srbcyr
 from epgconfig import Config
 
 # Parser for EPG file, replacing some elements
@@ -37,7 +37,7 @@ class EpgParser():
 
     def __init__(self):
         self.parser = xml.parsers.expat.ParserCreate()
-        self.cir = SerbCyr()
+        self.cir = py2srbcyr.SerbCyr()
         self.parser.StartElementHandler = self.start_element
         self.parser.EndElementHandler = self.end_element
         self.parser.CharacterDataHandler = self.char_data
