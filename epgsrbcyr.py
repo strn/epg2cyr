@@ -28,7 +28,7 @@ logging.basicConfig(
 )
 
 # Program-specific modules
-from srbcirilizator import SrbCirilizator
+from py2srbcyr import SerbCyr
 from epgconfig import Config
 
 # Parser for EPG file, replacing some elements
@@ -37,7 +37,7 @@ class EpgParser():
 
     def __init__(self):
         self.parser = xml.parsers.expat.ParserCreate()
-        self.cir = SrbCirilizator()
+        self.cir = SerbCyr()
         self.parser.StartElementHandler = self.start_element
         self.parser.EndElementHandler = self.end_element
         self.parser.CharacterDataHandler = self.char_data
