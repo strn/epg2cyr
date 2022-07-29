@@ -15,7 +15,9 @@ import time
 import unicodedata
 import urllib.request, urllib.error
 import xml.parsers.expat
-
+# Program-specific modules
+import py2srbcyr
+from   epgconfig import Config
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)s - %(message)s',
@@ -26,10 +28,6 @@ logging.basicConfig(
         logging.StreamHandler(sys.stdout)
     ]
 )
-
-# Program-specific modules
-from py2srbcyr import py2srbcyr
-from epgconfig import Config
 
 # Parser for EPG file, replacing some elements
 # with Cyrillic values
