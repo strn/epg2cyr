@@ -101,7 +101,9 @@ class EpgParser():
             return
         escaped = html.escape(data.strip())
         if self.translit and self.channel in self.config['channel-translit']:
-            self.outfile.write(self.cir.text_to_cyrillic(escaped).encode('utf-8'))
+            text = escaped.replace('&quot;', '"')
+            cyrtext = self.cir.text_to_cyrillic(text)
+            self.outfile.write(cyrtext.replace('"', '&quot;').encode('utf-8'))
         else:
             self.outfile.write(escaped.encode('utf-8'))
 
@@ -130,7 +132,7 @@ class EpgParser():
             self.config['channel-translit'] = [x.lower() for x in self.config['channel-translit']]
         if 'channel-map' in self.config.keys():
             self.config['channel-map'] = dict((k.lower(), v) for k,v in self.config['channel-map'].items())
-        logging.info(f"Configuration={self.config}")
+        #logging.info(f"Configuration={self.config}")
         self.parser.ParseFile(infile)
 
 
